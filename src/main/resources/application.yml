@@ -1,0 +1,53 @@
+
+spring:
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://weldboot_db:5437/weldboot
+    url: jdbc:postgresql://localhost:5433/weldboot
+    username: root
+    password: 1111
+  sql:
+    init:
+      mode: embedded
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+  docker:
+    compose:
+      lifecycle-management: start_and_stop
+      start:
+        command: up
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 10MB
+      enabled: true
+server:
+  port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  upload:
+    dir: src/main/resources/static
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  upload:
+    dir: /app/static/

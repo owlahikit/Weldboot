@@ -1,0 +1,35 @@
+version: '3.1'
+
+volumes:
+  weldboot-volume:
+
+services:
+  weldboot_db:
+    image: 'postgres:latest'
+    restart: always
+    volumes:
+      - weldboot-volume:/var/lib/postgresql/data
+    environment:
+      - 'POSTGRES_DB=weldboot'
+      - 'POSTGRES_PASSWORD=1111'
+      - 'POSTGRES_USER=root'
+#    networks:
+#      - my-net
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    container_name: 'weldboot-app'
+    restart: always
+    depends_on:
+      - weldboot_db
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://weldboot_db:5432/weldboot'
+      JAVA_OPTS: '-Xmx512m'
+    ports:
+      - "8080:8080"
+#    networks:
+#      my-net:
+#
+#networks:
+#  my-net:
