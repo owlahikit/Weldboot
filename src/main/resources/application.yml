@@ -6,7 +6,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://weldboot_db:5437/weldboot
-    url: jdbc:postgresql://localhost:5433/weldboot
+    url: jdbc:postgresql://localhost:5437/weldboot
     username: root
     password: 1111
   sql:
