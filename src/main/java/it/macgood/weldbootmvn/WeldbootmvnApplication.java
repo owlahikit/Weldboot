@@ -19,6 +19,7 @@ public class WeldbootmvnApplication {
     public static void main(String[] args) {
         SpringApplication.run(WeldbootmvnApplication.class, args);
     }
+    @Bean
     CommandLineRunner commandLineRunner(
             DefectCategoryRepository defectCategoryRepository,
             DefectQuantityRepository defectQuantityRepository,
@@ -298,7 +299,7 @@ public class WeldbootmvnApplication {
                         """)
                 .removal("""
                         <b>Способы устранения:</b>
-                                                
+                        
                         Дефектный участок удалить с помощью шлифовального инструмента и заварить вновь.
                         """)
                 .build()

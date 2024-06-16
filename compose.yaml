@@ -16,18 +16,18 @@ services:
 #    networks:
 #      - my-net
     ports:
-      - "5432:5432"
-  app:
-    build: .
-    container_name: 'weldboot-app'
-    restart: always
-    depends_on:
-      - weldboot_db
-    environment:
-      SPRING_DATASOURCE_URL: 'jdbc:postgresql://weldboot_db:5432/weldboot'
-      JAVA_OPTS: '-Xmx512m'
-    ports:
-      - "8080:8080"
+      - "5437:5432"
+#  app:
+#    build: .
+#    container_name: 'weldboot-app'
+#    restart: always
+#    depends_on:
+#      - weldboot_db
+#    environment:
+#      SPRING_DATASOURCE_URL: 'jdbc:postgresql://weldboot_db:5432/weldboot'
+#      JAVA_OPTS: '-Xmx512m'
+#    ports:
+#      - "8080:8080"
 #    networks:
 #      my-net:
 #
