@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../train/images
+test: ../train/images
+
+nc: 5
+names: ['adj', 'geo', 'int', 'non', 'pro']
+
+roboflow:
+  workspace: llab-jlfhu
+  project: rosatom_welds_
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/llab-jlfhu/rosatom_welds_/dataset/2
